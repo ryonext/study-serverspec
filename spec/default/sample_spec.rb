@@ -13,7 +13,7 @@ describe service('httpd'), :if => os[:family] == 'redhat' do
   it { should be_running }
 end
 
-describe service('apache2'), :if => os[:family] == 'ubuntu' do
+describe service('nginx'), :if => os[:family] == 'ubuntu' do
   it { should be_enabled }
   it { should be_running }
 end
