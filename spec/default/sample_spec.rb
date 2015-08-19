@@ -26,3 +26,7 @@ end
 describe port(80) do
   it { should be_listening }
 end
+
+describe command('ls /var/www') do
+  its(:stdout) { should match /hoge/ }
+end
