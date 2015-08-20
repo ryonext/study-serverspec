@@ -5,7 +5,9 @@ require 'tempfile'
 
 set :backend, :docker
 set :docker_url, ENV["DOCKER_HOST"]
-set :docker_image, "serverspec_docker"
+set :docker_image, "ryonext/serverspec_docker"
+
+Excon.defaults[:ssl_verify_peer] = false
 
 if ENV['ASK_SUDO_PASSWORD']
   begin
