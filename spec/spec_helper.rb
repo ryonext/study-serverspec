@@ -1,8 +1,11 @@
+require "docker"
 require 'serverspec'
 require 'net/ssh'
 require 'tempfile'
 
-set :backend, :ssh
+set :backend, :docker
+set :docker_url, ENV["DOCKER_HOST"]
+set :docker_image, "serverspec_docker"
 
 if ENV['ASK_SUDO_PASSWORD']
   begin
@@ -35,7 +38,7 @@ set :ssh_options, options
 
 
 # Set environment variables
-# set :env, :LANG => 'C', :LC_MESSAGES => 'C' 
+# set :env, :LANG => 'C', :LC_MESSAGES => 'C'
 
 # Set PATH
 # set :path, '/sbin:/usr/local/sbin:$PATH'
